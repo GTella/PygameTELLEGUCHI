@@ -28,13 +28,10 @@ class Button():
 		else:
 			self.text = self.font.render(self.text_input, True, self.base_color)
 
-
-import pygame, sys, sologame
-
-
+import pygame, sys
 pygame.init()
 
-SCREEN = pygame.display.set_mode((1280, 720))
+SCREEN = pygame.display.set_mode((1550, 810))
 pygame.display.set_caption("Humberpong")
 
 STARTBACKGROUND = pygame.image.load("assets/image/background.png").convert()
@@ -52,15 +49,15 @@ def SOLO():
         SCREEN.fill("black")
 
         SOLO_TEXT = get_font(20).render("Use as setinhas para movimentar seu jogador!", True, "White")
-        SOLO_RECT = SOLO_TEXT.get_rect(center=(650, 100))
-        SOLO_BACKGROUND = pygame.transform.scale(INSTRUCTIONBACKGROUND, (1280, 720))
+        SOLO_RECT = SOLO_TEXT.get_rect(center=(750, 100))
+        SOLO_BACKGROUND = pygame.transform.scale(INSTRUCTIONBACKGROUND, (1550, 810))
         SCREEN.blit(SOLO_BACKGROUND, (0, 0))
         SCREEN.blit(SOLO_TEXT, SOLO_RECT)
-        SCREEN.blit(KEYS_ARROWS, (350, 120))
+        SCREEN.blit(KEYS_ARROWS, (450, 150))
         
-        SOLO_START = Button(image=None, pos=(975, 600), 
+        SOLO_START = Button(image=None, pos=(1075, 700), 
                             text_input="START", font=get_font(75), base_color="White", hovering_color="Green")
-        SOLO_BACK = Button(image=None, pos=(350, 600), 
+        SOLO_BACK = Button(image=None, pos=(450, 700), 
                             text_input="BACK", font=get_font(75), base_color="White", hovering_color="Red")
 
         SOLO_BACK.changeColor(SOLO_MOUSE_POS)
@@ -75,8 +72,9 @@ def SOLO():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if SOLO_BACK.checkForInput(SOLO_MOUSE_POS):
                     main_menu()
-                    
-
+                if SOLO_START.checkForInput(SOLO_MOUSE_POS):
+                    import sologame
+                    sologame()
         pygame.display.update()
     
 def PVP():
@@ -87,16 +85,16 @@ def PVP():
         
         PVP_TEXT1 = get_font(20).render("Player 1 ", True, "White")
         PVP_TEXT2 = get_font(20).render("Player 2 ", True, "White")
-        PVP_RECT1 = PVP_TEXT1.get_rect(center=(300, 100))
-        PVP_RECT2 = PVP_TEXT1.get_rect(center=(975, 100))
-        PVP_BACKGROUND = pygame.transform.scale(INSTRUCTIONBACKGROUND, (1280, 720))
+        PVP_RECT1 = PVP_TEXT1.get_rect(center=(400, 130))
+        PVP_RECT2 = PVP_TEXT1.get_rect(center=(1075, 130))
+        PVP_BACKGROUND = pygame.transform.scale(INSTRUCTIONBACKGROUND, (1550, 810))
         SCREEN.blit(PVP_BACKGROUND, (0, 0))
         SCREEN.blit(PVP_TEXT1, PVP_RECT1)
         SCREEN.blit(PVP_TEXT2, PVP_RECT2)
-        SCREEN.blit(KEYS_WASD, (20, 70))
-        SCREEN.blit(KEYS_ARROWS, (680, 120))
+        SCREEN.blit(KEYS_WASD, (120, 100))
+        SCREEN.blit(KEYS_ARROWS, (780, 150))
 
-        PVP_BACK = Button(image=None, pos=(640, 600), 
+        PVP_BACK = Button(image=None, pos=(740, 700), 
                             text_input="BACK", font=get_font(75), base_color="White", hovering_color="Green")
 
         PVP_BACK.changeColor(PVP_MOUSE_POS)
@@ -115,19 +113,19 @@ def PVP():
 def main_menu():
     while True:
         
-        BG = pygame.transform.scale(STARTBACKGROUND, (1280, 720))
+        BG = pygame.transform.scale(STARTBACKGROUND, (1550, 810))
         SCREEN.blit(BG, (0, 0))
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
         MENU_TEXT = get_font(100).render("HUMBERPONG", True, "Purple")
-        MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
+        MENU_RECT = MENU_TEXT.get_rect(center=(740, 150))
 
-        SOLO_BUTTON = Button(image=pygame.image.load("assets/image/Play Rect.png"), pos=(640, 250), 
+        SOLO_BUTTON = Button(image=pygame.image.load("assets/image/Play Rect.png"), pos=(740, 350), 
                             text_input="SOLO", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        PVP_BUTTON = Button(image=pygame.image.load("assets/image/Options Rect.png"), pos=(640, 400), 
+        PVP_BUTTON = Button(image=pygame.image.load("assets/image/Options Rect.png"), pos=(740, 500), 
                             text_input="1V1", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("assets/image/Quit Rect.png"), pos=(640, 550), 
+        QUIT_BUTTON = Button(image=pygame.image.load("assets/image/Quit Rect.png"), pos=(740, 650), 
                             text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         SCREEN.blit(MENU_TEXT, MENU_RECT)
