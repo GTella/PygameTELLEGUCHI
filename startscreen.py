@@ -29,7 +29,10 @@ class Button():
 			self.text = self.font.render(self.text_input, True, self.base_color)
 
 import pygame, sys
+from solo import sologame
+pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
+
 
 SCREEN = pygame.display.set_mode((1550, 810))
 pygame.display.set_caption("Humberpong")
@@ -39,8 +42,11 @@ INSTRUCTIONBACKGROUND = pygame.image.load("assets/image/buttonsbackground.png").
 KEYS_ARROWS = pygame.image.load("assets/image/teclas_setas.png")
 KEYS_WASD = pygame.image.load("assets/image/teclas_WASD.png")
 
+menu_sound = pygame.mixer.Sound("assets/snd/menu.mp3")
+
+
 def get_font(size): # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("font.ttf", size)
+    return pygame.font.Font("assets/font/font.ttf", size)
 
 def SOLO():
     while True:
@@ -73,7 +79,6 @@ def SOLO():
                 if SOLO_BACK.checkForInput(SOLO_MOUSE_POS):
                     main_menu()
                 if SOLO_START.checkForInput(SOLO_MOUSE_POS):
-                    import sologame
                     sologame()
         pygame.display.update()
     
@@ -112,6 +117,8 @@ def PVP():
 
 def main_menu():
     while True:
+        
+        pygame.mixer.Sound.play(menu_sound)
         
         BG = pygame.transform.scale(STARTBACKGROUND, (1550, 810))
         SCREEN.blit(BG, (0, 0))
