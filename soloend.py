@@ -12,22 +12,28 @@ BACKGROUND = pygame.image.load("assets/image/background.png").convert()
 WIN_IMAGE = pygame.image.load("assets/image/winner.png")
 LOSE_IMAGE = pygame.image.load("assets/image/game_over.png")
 
+winner_sound = pygame.mixer.Sound("assets/snd/winner.mp3")
+
 def WINNER():
-    while True:
+    while True: 
+        
+        pygame.mixer.Sound.play(winner_sound)
+
         WINNER_MOUSE_POS = pygame.mouse.get_pos()
 
         screen.fill("black")
 
-        WINNER_TEXT = get_font(20).render("Use as setinhas para movimentar seu jogador!", True, "White")
+        WINNER_TEXT = get_font(20).render("PARABÉNS, VOCÊ GANHOU!!!", True, "White")
         WINNER_RECT = WINNER_TEXT.get_rect(center=(750, 100))
         WINNER_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
+        WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1550/3, 810/3))
         screen.blit(WINNER_BACKGROUND, (0, 0))
         screen.blit(WINNER_TEXT, WINNER_RECT)
-        screen.blit(WIN_IMAGE, (450, 150))
+        screen.blit(WINNER_IMAGE, (450, 250))
         
         WINNER_RESTART = Button(image=None, pos=(1075, 700), 
                             text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
-        WINNER_MENU = Button(image=None, pos=(450, 700), 
+        WINNER_MENU = Button(image=None, pos=(450, 700),
                             text_input="MENU", font=get_font(75), base_color="White", hovering_color="Red")
 
         WINNER_MENU.changeColor(WINNER_MOUSE_POS)
