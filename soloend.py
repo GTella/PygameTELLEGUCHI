@@ -1,7 +1,5 @@
 import pygame, sys
-from startscreen import get_font
-from startscreen import Button
-from startscreen import main_menu
+from other import Button, get_font
 
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
@@ -43,7 +41,7 @@ def WINNER():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if WINNER_MENU.checkForInput(WINNER_MOUSE_POS):
-                    main_menu()
+                    print ('YEY')
         
         pygame.display.update()   
 
@@ -76,6 +74,6 @@ def LOSE():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if LOSE_MENU.checkForInput(LOSE_MOUSE_POS):
-                    main_menu()
+                    print('YEY')
         
         pygame.display.update()   
