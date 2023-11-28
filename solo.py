@@ -84,8 +84,8 @@ def sologame():
             ball_speed_x, ball_speed_y = 0,0
         
         else:
-            ball_speed_y = 7 * random.choice((1, -1))
-            ball_speed_x = 7 * random.choice((1, -1))
+            ball_speed_y = 9 * random.choice((1, -1))
+            ball_speed_x = 9 * random.choice((1, -1))
             score_time = None
     
 
