@@ -26,10 +26,10 @@ def WINNER():
         WINNER_TEXT = get_font(20).render("PARABÉNS, VOCÊ GANHOU!!!", True, "White")
         WINNER_RECT = WINNER_TEXT.get_rect(center=(750, 100))
         WINNER_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
-        WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1600/3, 1110/3))
+        WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1600/3, 1210/3))
         screen.blit(WINNER_BACKGROUND, (0, 0))
         screen.blit(WINNER_TEXT, WINNER_RECT)
-        screen.blit(WINNER_IMAGE, (525, 250))
+        screen.blit(WINNER_IMAGE, (525, 200))
         
         WINNER_RESTART = Button(image=None, pos=(1075, 700), 
                             text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
