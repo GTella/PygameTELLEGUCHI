@@ -1,8 +1,9 @@
 
 import pygame, sys
 from solo import sologame
+from pvpend import pvpgame
 from other import Button, get_font
-pygame.mixer.pre_init(44100,-16,2,512)
+pygame.mixer.pre_init(44000,-16,2,512)
 pygame.init()
 
 
@@ -67,11 +68,16 @@ def PVP():
         SCREEN.blit(KEYS_WASD, (120, 100))
         SCREEN.blit(KEYS_ARROWS, (780, 150))
 
-        PVP_BACK = Button(image=None, pos=(740, 700), 
-                            text_input="BACK", font=get_font(75), base_color="White", hovering_color="Green")
+
+        PVP_START = Button(image=None, pos=(1075, 700), 
+                            text_input="START", font=get_font(75), base_color="White", hovering_color="Green")
+        PVP_BACK = Button(image=None, pos=(450, 700), 
+                            text_input="BACK", font=get_font(75), base_color="White", hovering_color="Red")
 
         PVP_BACK.changeColor(PVP_MOUSE_POS)
         PVP_BACK.update(SCREEN)
+        PVP_START.changeColor(PVP_MOUSE_POS)
+        PVP_START.update(SCREEN)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -80,6 +86,8 @@ def PVP():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PVP_BACK.checkForInput(PVP_MOUSE_POS):
                     main_menu()
+                if PVP_START.checkForInput(PVP_MOUSE_POS):
+                    pvpgame()
 
         pygame.display.update()
 
