@@ -111,7 +111,7 @@ def sologame():
     ball_speed_x = 7 * random.choice((1, -1))
     ball_speed_y = 7 * random.choice((1, -1))
     player_speed = 0
-    opponent_speed = 7
+    opponent_speed = 8
 
     # ===== Text Variable ===== #
     player_score = 0

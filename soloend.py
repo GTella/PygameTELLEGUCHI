@@ -26,10 +26,10 @@ def WINNER():
         WINNER_TEXT = get_font(20).render("PARABÉNS, VOCÊ GANHOU!!!", True, "White")
         WINNER_RECT = WINNER_TEXT.get_rect(center=(750, 100))
         WINNER_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
-        WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1550/3, 810/3))
+        WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1600/3, 1110/3))
         screen.blit(WINNER_BACKGROUND, (0, 0))
         screen.blit(WINNER_TEXT, WINNER_RECT)
-        screen.blit(WINNER_IMAGE, (450, 250))
+        screen.blit(WINNER_IMAGE, (525, 250))
         
         WINNER_RESTART = Button(image=None, pos=(1075, 700), 
                             text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
@@ -57,12 +57,12 @@ def LOSE():
 
         screen.fill("black")
 
-        LOSE_TEXT = get_font(20).render("Use as setinhas para movimentar seu jogador!", True, "White")
+        LOSE_TEXT = get_font(20).render("Use as setinhas para movimentar seu jogador! Tente novamente!", True, "White")
         LOSE_RECT = LOSE_TEXT.get_rect(center=(750, 100))
         LOSE_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
         screen.blit(LOSE_BACKGROUND, (0, 0))
         screen.blit(LOSE_TEXT, LOSE_RECT)
-        screen.blit(LOSE_IMAGE, (450, 150))
+        screen.blit(LOSE_IMAGE, (575, 200))
         
         LOSE_RESTART = Button(image=None, pos=(1075, 700), 
                             text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
