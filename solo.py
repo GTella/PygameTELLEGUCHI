@@ -108,10 +108,10 @@ def sologame():
     bg_color = pygame.Color('grey12')
     light_grey = (200, 200, 200)
 
-    ball_speed_x = 7 * random.choice((1, -1))
-    ball_speed_y = 7 * random.choice((1, -1))
+    ball_speed_x = 10 * random.choice((5, -5))
+    ball_speed_y = 10 * random.choice((7, -7))
     player_speed = 0
-    opponent_speed = 8
+    opponent_speed = 9
 
     # ===== Text Variable ===== #
     player_score = 0

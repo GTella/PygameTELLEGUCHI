@@ -31,23 +31,12 @@ def WINNER():
         screen.blit(WINNER_TEXT, WINNER_RECT)
         screen.blit(WINNER_IMAGE, (525, 200))
         
-        WINNER_RESTART = Button(image=None, pos=(1075, 700), 
-                            text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
-        WINNER_MENU = Button(image=None, pos=(450, 700),
-                            text_input="MENU", font=get_font(75), base_color="White", hovering_color="Red")
-
-        WINNER_MENU.changeColor(WINNER_MOUSE_POS)
-        WINNER_MENU.update(screen)
-        WINNER_RESTART.changeColor(WINNER_MOUSE_POS)
-        WINNER_RESTART.update(screen)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if WINNER_MENU.checkForInput(WINNER_MOUSE_POS):
-                    print ('YEY')
+            
         
         pygame.display.update()   
 
@@ -64,22 +53,11 @@ def LOSE():
         screen.blit(LOSE_TEXT, LOSE_RECT)
         screen.blit(LOSE_IMAGE, (575, 200))
         
-        LOSE_RESTART = Button(image=None, pos=(1075, 700), 
-                            text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
-        LOSE_MENU = Button(image=None, pos=(450, 700), 
-                            text_input="MENU", font=get_font(75), base_color="White", hovering_color="Red")
-
-        LOSE_MENU.changeColor(LOSE_MOUSE_POS)
-        LOSE_MENU.update(screen)
-        LOSE_RESTART.changeColor(LOSE_MOUSE_POS)
-        LOSE_RESTART.update(screen)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if LOSE_MENU.checkForInput(LOSE_MOUSE_POS):
-                    print('YEY')
+            
         
         pygame.display.update()   
