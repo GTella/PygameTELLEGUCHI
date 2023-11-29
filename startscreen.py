@@ -56,6 +56,7 @@ def PVP():
     while True:
         PVP_MOUSE_POS = pygame.mouse.get_pos()
 
+
         SCREEN.fill("black")
         
         PVP_TEXT1 = get_font(20).render("Player 1 ", True, "White")
