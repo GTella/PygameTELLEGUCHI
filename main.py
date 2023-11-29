@@ -39,15 +39,13 @@ def WINNER():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if WIN_RESTART.checkForInput(WINNER_MOUSE_POS):
+                    pygame.mixer.Sound.stop(winner_sound)
                     sologame()
                 if WIN_MENU.checkForInput(WINNER_MOUSE_POS):
-                    pygame.mixer.Sound.stop(menu_sound)
+                    pygame.mixer.Sound.stop(winner_sound)
                     main_menu()
             
-            pygame.display.update()
-            
-        
-        pygame.display.update()   
+            pygame.display.update()   
 
 def LOSE():
     BACKGROUND = pygame.image.load("assets/image/background.png").convert()
@@ -85,16 +83,13 @@ def LOSE():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if LOSE_RESTART.checkForInput(LOSE_MOUSE_POS):
+                    pygame.mixer.Sound.stop(lose_sound)
                     sologame()
                 if LOSE_MENU.checkForInput(LOSE_MOUSE_POS):
-                    pygame.mixer.Sound.stop(menu_sound)
+                    pygame.mixer.Sound.stop(lose_sound)
                     main_menu()
             
             pygame.display.update()
-            
-        
-        pygame.display.update()
-
 
 
 
@@ -227,9 +222,10 @@ def pvpgame():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if PVP_RESTART.checkForInput(WINNER_MOUSE_POS):
+                        pygame.mixer.Sound.stop(winner_sound)
                         pvpgame()
                     if PVP_MENU.checkForInput(WINNER_MOUSE_POS):
-                        pygame.mixer.Sound.stop(menu_sound)
+                        pygame.mixer.Sound.stop(winner_sound)
                         main_menu()
             
             pygame.display.update()

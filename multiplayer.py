@@ -117,7 +117,7 @@ def pvpgame():
                     pygame.quit()
                     sys.exit()
             
-        
+            
             pygame.display.update()
             
 

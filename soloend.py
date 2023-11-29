@@ -8,14 +8,11 @@ SCREEN_HEIGHT = 810
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('HUMBERPONG')
 
-BACKGROUND = pygame.image.load("assets/image/background.png").convert()
-WIN_IMAGE = pygame.image.load("assets/image/winner.png")
-LOSE_IMAGE = pygame.image.load("assets/image/game_over.png")
-
-winner_sound = pygame.mixer.Sound("assets/snd/winner.mp3")
-lose_sound = pygame.mixer.Sound("assets/snd/lose.mp3")
-
 def WINNER():
+    BACKGROUND = pygame.image.load("assets/image/background.png").convert()
+    WIN_IMAGE = pygame.image.load("assets/image/winner.png")
+    winner_sound = pygame.mixer.Sound("assets/snd/winner.mp3")
+   
     while True: 
         
         pygame.mixer.Sound.play(winner_sound)
@@ -42,6 +39,9 @@ def WINNER():
         pygame.display.update()   
 
 def LOSE():
+    BACKGROUND = pygame.image.load("assets/image/background.png").convert()
+    LOSE_IMAGE = pygame.image.load("assets/image/game_over.png")
+    lose_sound = pygame.mixer.Sound("assets/snd/lose.mp3")
     while True:
         
         pygame.mixer.Sound.play(lose_sound)
