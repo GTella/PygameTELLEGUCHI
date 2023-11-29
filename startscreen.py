@@ -1,7 +1,7 @@
 
 import pygame, sys
 from solo import sologame
-from pvpend import pvpgame
+from multiplayer import pvpgame
 from other import Button, get_font
 pygame.mixer.pre_init(44000,-16,2,512)
 pygame.init()
@@ -48,6 +48,7 @@ def SOLO():
                 if SOLO_BACK.checkForInput(SOLO_MOUSE_POS):
                     main_menu()
                 if SOLO_START.checkForInput(SOLO_MOUSE_POS):
+                    pygame.mixer.Sound.stop(menu_sound)
                     sologame()
         pygame.display.update()
     
@@ -87,6 +88,7 @@ def PVP():
                 if PVP_BACK.checkForInput(PVP_MOUSE_POS):
                     main_menu()
                 if PVP_START.checkForInput(PVP_MOUSE_POS):
+                    pygame.mixer.Sound.stop(menu_sound)
                     pvpgame()
 
         pygame.display.update()

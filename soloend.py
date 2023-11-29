@@ -13,6 +13,7 @@ WIN_IMAGE = pygame.image.load("assets/image/winner.png")
 LOSE_IMAGE = pygame.image.load("assets/image/game_over.png")
 
 winner_sound = pygame.mixer.Sound("assets/snd/winner.mp3")
+lose_sound = pygame.mixer.Sound("assets/snd/lose.mp3")
 
 def WINNER():
     while True: 
@@ -42,11 +43,14 @@ def WINNER():
 
 def LOSE():
     while True:
+        
+        pygame.mixer.Sound.play(lose_sound)
+        
         LOSE_MOUSE_POS = pygame.mouse.get_pos()
 
         screen.fill("black")
 
-        LOSE_TEXT = get_font(20).render("Use as setinhas para movimentar seu jogador! Tente novamente!", True, "White")
+        LOSE_TEXT = get_font(20).render("Você perdeu, tente novamente! ;-;", True, "White")
         LOSE_RECT = LOSE_TEXT.get_rect(center=(750, 100))
         LOSE_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
         screen.blit(LOSE_BACKGROUND, (0, 0))

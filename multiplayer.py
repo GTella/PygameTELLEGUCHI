@@ -1,6 +1,5 @@
 import pygame, sys, random
-from soloend import WINNER
-from soloend import LOSE
+from other import get_font
 
 def pvpgame():
     global ball_speed_x, ball_speed_y, player_score, opponent_score, score_time
@@ -85,10 +84,45 @@ def pvpgame():
             ball_speed_y = 9 * random.choice((1, -1))
             ball_speed_x = 9 * random.choice((1, -1))
             score_time = None
-    
+            
+    def PVPWIN():
+        
+        WIN_IMAGE = pygame.image.load("assets/image/winner.png")
+        BACKGROUND = pygame.image.load("assets/image/background.png").convert()
+        winner_sound = pygame.mixer.Sound("assets/snd/winner.mp3")
+        if opponent_score == 3:
+            x = 'Player 1'
+        if player_score == 3:
+            x = 'Player 2'
+
+        while True: 
+            
+            WINNER_MOUSE_POS = pygame.mouse.get_pos()
+            pygame.mixer.Sound.play(winner_sound)
+            if opponent_score == 3:
+                x = 'Player 1'
+            if player_score == 3:
+                x = 'Player 2'
+            screen.fill("black")
+            WINNER_TEXT = get_font(20).render("PARABÉNS, {0} GANHOU!!!".format(x), True, "White")
+            WINNER_RECT = WINNER_TEXT.get_rect(center=(750, 100))
+            WINNER_BACKGROUND = pygame.transform.scale(BACKGROUND, (1550, 810))
+            WINNER_IMAGE = pygame.transform.scale(WIN_IMAGE, (1600/3, 1210/3))
+            screen.blit(WINNER_BACKGROUND, (0, 0))
+            screen.blit(WINNER_TEXT, WINNER_RECT)
+            screen.blit(WINNER_IMAGE, (525, 200))
+            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+            
+        
+            pygame.display.update()
+            
 
     # ===== General Setup ===== #
-    pygame.mixer.pre_init(44100,-16,2,512)
+    pygame.mixer.pre_init(44100,-16,2,220)
     pygame.init()
     clock = pygame.time.Clock()
 
@@ -129,6 +163,7 @@ def pvpgame():
 
     # ===== Images ===== #
     GAMEBACKGROUND = pygame.image.load("assets/image/background.png").convert()
+    WIN_IMAGE = pygame.image.load("assets/image/winner.png")
 
     # ===== Score Timer ===== #
     score_time = True
@@ -172,7 +207,7 @@ def pvpgame():
         pygame.draw.aaline(screen, light_grey, (SCREEN_WIDTH/2, 0), (SCREEN_WIDTH/2, SCREEN_HEIGHT))
     
         if player_score == 3 or opponent_score == 3:
-            WINNER()
+            PVPWIN()
         if score_time:
             ball_restart()
 
