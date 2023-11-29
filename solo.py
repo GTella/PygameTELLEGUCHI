@@ -101,7 +101,12 @@ def sologame():
     pygame.display.set_caption('HUMBERPONG')
 
     # ===== Game Rectangles ===== #
-    ball = pygame.Rect(SCREEN_WIDTH/2 - 15, SCREEN_HEIGHT/2 - 15, 30, 30)
+    #ball = pygame.Rect(SCREEN_WIDTH/2 - 15, SCREEN_HEIGHT/2 - 15, 30, 30)
+    # Carregar a imagem (sprite)
+    humberto_image = pygame.image.load("assets/image/humberto.png")
+    humberto_image = pygame.transform.scale(humberto_image, (30, 30))
+    humberto_rect = humberto_image.get_rect(center=(SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
+    ball = humberto_rect
     player = pygame.Rect(SCREEN_WIDTH - 20, SCREEN_HEIGHT/2 - 70, 10, 140)
     opponent = pygame.Rect(10, SCREEN_HEIGHT/2 - 70, 10, 140)
 
@@ -165,7 +170,9 @@ def sologame():
             LOSE()
         if score_time:
             ball_restart()
-    
+
+        screen.blit(humberto_image, humberto_rect)
+        
         player_text = game_font.render(f'{player_score}', False, light_grey)
         screen.blit(player_text, (850, 425))
     
