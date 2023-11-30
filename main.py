@@ -207,7 +207,7 @@ def pvpgame():
             screen.blit(WINNER_IMAGE, (525, 200))
             
             PVP_RESTART = Button(image=None, pos=(1075, 700), 
-                            text_input="RESSTART", font=get_font(75), base_color="White", hovering_color="Green")
+                            text_input="RESTART", font=get_font(75), base_color="White", hovering_color="Green")
             PVP_MENU = Button(image=None, pos=(450, 700), 
                             text_input="MENU", font=get_font(75), base_color="White", hovering_color="Red")
 

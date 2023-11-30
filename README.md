@@ -16,4 +16,8 @@ Controles Jogador #2  (lado esquerdo da tela)
     W para a barrinha subir
     S para a barrinha descer
 
+Demonstração do funcionamento do jogo:
+    https://youtu.be/1Bl-0uZf8HI 
+
+
 Bom jogo!!
